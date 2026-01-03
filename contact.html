@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - STPRO | Contactez-nous</title>
+    <meta name="description"
+        content="Contactez STPRO pour tous vos besoins en services techniques à Niamey, Niger. Téléphone, email, formulaire de contact.">
+    <meta name="keywords" content="contact, devis, STPRO, Niamey, Niger, services techniques">
+    <link rel="stylesheet" href="stpro-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="entreprise/logo.jpeg" alt="STPRO Logo" class="logo">
+                <div class="logo-text">
+                    <h1>STPRO</h1>
+                    <p>Services Techniques Professionnels</p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="projets.html" class="nav-link">Projets</a></li>
+                <li><a href="equipe.html" class="nav-link">Équipe</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero page-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text animate-fade-in">
+                    <h2 class="hero-title">Contactez-nous</h2>
+                    <p class="hero-subtitle">Nous sommes à votre écoute pour tous vos besoins techniques</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Parlons de Votre Projet</h2>
+                <p class="section-subtitle">Contactez-nous pour un devis gratuit et personnalisé</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">📱</div>
+                        <h3>Téléphones</h3>
+                        <p><a href="tel:+22776757468">+227 76 75 74 68</a></p>
+                        <p><a href="tel:+22791990466">+227 91 99 04 66</a></p>
+                        <p><a href="tel:+22797640547">+227 97 64 05 47</a></p>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:stpro8481@gmail.com">stpro8481@gmail.com</a></p>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">📍</div>
+                        <h3>Localisation</h3>
+                        <p>Niamey, Niger</p>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">⏰</div>
+                        <h3>Horaires</h3>
+                        <p>Lundi - Vendredi: 8h - 18h</p>
+                        <p>Samedi: 8h - 14h</p>
+                        <p>Urgences: 24h/24</p>
+                    </div>
+                </div>
+                <div class="contact-form-container animate-on-scroll">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Envoyez-nous un Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Votre nom *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Votre email *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Votre téléphone">
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service"
+                                style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: var(--spacing-sm) var(--spacing-md); color: var(--text-primary); font-family: var(--font-family); font-size: var(--font-size-base);">
+                                <option value="">Sélectionnez un service</option>
+                                <option value="installation">Installation Électrique</option>
+                                <option value="maintenance">Maintenance Technique</option>
+                                <option value="chantier">Travaux de Chantier</option>
+                                <option value="energie">Solutions Énergétiques</option>
+                                <option value="reparation">Réparations</option>
+                                <option value="consulting">Consulting Technique</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Votre message *"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Contact Us Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pourquoi Nous Contacter ?</h2>
+                <p class="section-subtitle">Les avantages de travailler avec STPRO</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">⚡</div>
+                    <h3>Réponse Rapide</h3>
+                    <p>Nous répondons à toutes vos demandes dans les plus brefs délais, généralement sous 24h.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">💰</div>
+                    <h3>Devis Gratuit</h3>
+                    <p>Obtenez un devis détaillé et transparent sans aucun engagement de votre part.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">👨‍🔧</div>
+                    <h3>Conseil Expert</h3>
+                    <p>Bénéficiez de conseils professionnels pour optimiser votre projet et votre budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="entreprise/logo.jpeg" alt="STPRO Logo">
+                    <h3>SERVICES TECHNIQUES PROFESSIONNELS</h3>
+                    <p>Excellence en services techniques depuis des années</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projets.html">Projets</a></li>
+                        <li><a href="equipe.html">Équipe</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📱 +227 76 75 74 68</p>
+                    <p>📱 +227 91 99 04 66</p>
+                    <p>📱 +227 97 64 05 47</p>
+                    <p>✉️ stpro8481@gmail.com</p>
+                    <p>📍 Niamey, Niger</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SERVICES TECHNIQUES PROFESSIONNELS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="stpro-script.js"></script>
+</body>
+
+</html>

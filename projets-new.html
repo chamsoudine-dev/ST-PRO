@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Projets - SERVICES TECHNIQUES PROFESSIONNELS</title>
+    <meta name="description" content="Découvrez nos réalisations et projets techniques à Niamey, Niger.">
+    <link rel="stylesheet" href="stpro-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Additional styles for projects page */
+        .projects-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(249, 115, 22, 0.95) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .projects-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .projects-hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .category-section {
+            padding: 4rem 0;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-header p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        .project-media {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-media img,
+        .project-card:hover .project-media video {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .projects-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-hero p {
+                font-size: 1.125rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="entreprise/logo.jpeg" alt="STPRO Logo" class="logo">
+                <div class="logo-text">
+                    <h1>STPRO</h1>
+                    <p>Services Techniques Professionnels</p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="stpro.html#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="stpro.html#services" class="nav-link">Services</a></li>
+                <li><a href="projets-new.html" class="nav-link active">Projets</a></li>
+                <li><a href="stpro.html#equipe" class="nav-link">Équipe</a></li>
+                <li><a href="stpro.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Nos Réalisations</h1>
+            <p>Découvrez notre portfolio de projets techniques réussis à Niamey et au Niger</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projets Réalisés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Clients Satisfaits</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Années d'Expérience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Disponible</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Projects Section -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🎥</div>
+                <h2>Projets en Vidéo</h2>
+                <p>Découvrez nos installations et réalisations en action</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Video Project 1 -->
+                <div class="project-card" data-type="video" data-src="entreprise/installation.mp4">
+                    <div class="project-media">
+                        <video src="entreprise/installation.mp4" poster="entreprise/video4.jpeg"></video>
+                        <div class="project-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Installation</span>
+                        <h3 class="project-title">Installation Électrique Professionnelle</h3>
+                        <p class="project-description">Installation complète d'un système électrique moderne avec
+                            équipements de pointe et respect des normes de sécurité.</p>
+                    </div>
+                </div>
+
+                <!-- Video Project 2 -->
+                <div class="project-card" data-type="video" data-src="entreprise/video des chantier.mp4">
+                    <div class="project-media">
+                        <video src="entreprise/video des chantier.mp4"></video>
+                        <div class="project-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Chantier</span>
+                        <h3 class="project-title">Travaux de Chantier</h3>
+                        <p class="project-description">Gestion complète de chantier avec coordination d'équipes et
+                            respect des délais de livraison.</p>
+                    </div>
+                </div>
+
+                <!-- Video Project 3 -->
+                <div class="project-card" data-type="video" data-src="entreprise/video 2.mp4">
+                    <div class="project-media">
+                        <video src="entreprise/video 2.mp4"></video>
+                        <div class="project-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Technique</span>
+                        <h3 class="project-title">Projet Technique Avancé</h3>
+                        <p class="project-description">Mise en œuvre de solutions techniques innovantes pour des
+                            installations complexes.</p>
+                    </div>
+                </div>
+
+                <!-- Video Project 4 -->
+                <div class="project-card" data-type="video" data-src="entreprise/video 3.mp4">
+                    <div class="project-media">
+                        <video src="entreprise/video 3.mp4"></video>
+                        <div class="project-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Réalisation</span>
+                        <h3 class="project-title">Réalisation Complète</h3>
+                        <p class="project-description">Projet complet de A à Z incluant conception, installation et
+                            maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Projects Section -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">📸</div>
+                <h2>Galerie de Projets</h2>
+                <p>Nos installations et réalisations techniques en images</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Image Project 1 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.10.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.10.jpeg" alt="Installation Technique">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Installation</span>
+                        <h3 class="project-title">Installation Technique Moderne</h3>
+                        <p class="project-description">Installation d'équipements techniques avec câblage structuré et
+                            organisation optimale.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 2 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.11.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.11.jpeg" alt="Travaux Professionnels">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Travaux</span>
+                        <h3 class="project-title">Travaux Professionnels</h3>
+                        <p class="project-description">Exécution de travaux techniques avec précision et expertise
+                            professionnelle.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 3 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.14.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.14.jpeg" alt="Réalisation Technique">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Réalisation</span>
+                        <h3 class="project-title">Réalisation Technique Complexe</h3>
+                        <p class="project-description">Projet technique nécessitant expertise et coordination
+                            d'équipes spécialisées.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 4 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.14c.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.14c.jpeg" alt="Installation Complète">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Installation</span>
+                        <h3 class="project-title">Installation Complète</h3>
+                        <p class="project-description">Installation complète de systèmes électriques et techniques pour
+                            bâtiment commercial.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 5 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.16.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.16.jpeg" alt="Projet Réussi">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Succès</span>
+                        <h3 class="project-title">Projet Réussi</h3>
+                        <p class="project-description">Projet livré dans les délais avec satisfaction client
+                            garantie.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 6 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.17.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.17.jpeg" alt="Travaux Techniques">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Technique</span>
+                        <h3 class="project-title">Travaux Techniques Spécialisés</h3>
+                        <p class="project-description">Intervention technique spécialisée avec équipements de haute
+                            technologie.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 7 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.17f.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.17f.jpeg"
+                            alt="Installation Professionnelle">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Installation</span>
+                        <h3 class="project-title">Installation Professionnelle</h3>
+                        <p class="project-description">Installation professionnelle avec finitions soignées et
+                            conformité aux normes.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 8 -->
+                <div class="project-card" data-type="image"
+                    data-src="entreprise/WhatsApp Image 2025-12-21 at 14.10.18.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/WhatsApp Image 2025-12-21 at 14.10.18.jpeg" alt="Réalisation Complète">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Réalisation</span>
+                        <h3 class="project-title">Réalisation Complète et Aboutie</h3>
+                        <p class="project-description">Projet complet avec suivi qualité et validation client à chaque
+                            étape.</p>
+                    </div>
+                </div>
+
+                <!-- Image Project 9 -->
+                <div class="project-card" data-type="image" data-src="entreprise/prof.jpeg">
+                    <div class="project-media">
+                        <img src="entreprise/prof.jpeg" alt="Services Professionnels">
+                        <div class="project-overlay">
+                            <div class="play-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Excellence</span>
+                        <h3 class="project-title">Services Professionnels d'Excellence</h3>
+                        <p class="project-description">Démonstration de notre expertise et professionnalisme dans
+                            chaque intervention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à Démarrer Votre Projet ?</h2>
+                <p>Contactez-nous dès aujourd'hui pour discuter de vos besoins techniques</p>
+                <div class="cta-buttons">
+                    <a href="stpro.html#contact" class="btn btn-primary">Contactez-nous</a>
+                    <a href="stpro.html#services" class="btn btn-secondary">Nos Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="entreprise/logo.jpeg" alt="STPRO Logo">
+                    <h3>SERVICES TECHNIQUES PROFESSIONNELS</h3>
+                    <p>Excellence en services techniques depuis des années</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="stpro.html#accueil">Accueil</a></li>
+                        <li><a href="stpro.html#services">Services</a></li>
+                        <li><a href="projets-new.html">Projets</a></li>
+                        <li><a href="stpro.html#equipe">Équipe</a></li>
+                        <li><a href="stpro.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📱 +227 76 75 74 68</p>
+                    <p>📱 +227 91 99 04 66</p>
+                    <p>📱 +227 97 64 05 47</p>
+                    <p>✉️ stpro8481@gmail.com</p>
+                    <p>📍 Niamey, Niger</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SERVICES TECHNIQUES PROFESSIONNELS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <video id="lightboxVideo" controls></video>
+        </div>
+    </div>
+
+    <script src="stpro-script.js"></script>
+</body>
+
+</html>
